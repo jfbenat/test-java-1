@@ -46,38 +46,18 @@ public class MyTransaction {
 	}
 	public void setAmount(String amount) {
 		this.amount = amount;
-		/*
-		DecimalFormat df = new DecimalFormat("###.##0,00");
-		DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
-		dfs.setDecimalSeparator('.');
-		dfs.setGroupingSeparator(',');
-		df.setDecimalFormatSymbols(dfs);
-		this.amount = Double.parseDouble(df.format(amount));
-		*/
-		/*
-		System.out.println(amount);
-		Double amountDouble = Double.parseDouble(amount);
-		this.debit = amountDouble < 0 ? amountDouble * -1 : 0;
-		this.credit = amountDouble > 0 ? amountDouble : 0;
-		*/
-		/*
-		this.debit = this.amount < 0 ? this.amount * -1 : 0;
-		this.credit = this.amount > 0 ? this.amount : 0;
-		*/
 	}
 	public Double getDebit() {
 		return debit;
 	}
 	public void setDebit(Double debit) {
 		this.debit = debit;
-		//this.debit = debit < 0 ? debit * -1 : 0;
 	}
 	public Double getCredit() {
 		return credit;
 	}
 	public void setCredit(Double credit) {
 		this.credit = credit;
-		//this.credit = credit > 0 ? credit : 0;
 	}
 	public String getLabel() {
 		return label;

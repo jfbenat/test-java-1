@@ -41,7 +41,6 @@ public class OutputController {
         String output = "";
 
         // TODO
-        // Source : https://stackoverflow.com/questions/5012525/get-root-base-url-in-spring-mvc
         String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
         		.build()
         	    .toUriString();

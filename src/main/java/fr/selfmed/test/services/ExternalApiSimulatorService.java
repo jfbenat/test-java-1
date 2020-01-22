@@ -32,7 +32,6 @@ public class ExternalApiSimulatorService {
         String apiResponse = "";
 
         //TODO
-        // Source : http://zetcode.com/java/getpostrequest/
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
@@ -46,21 +45,12 @@ public class ExternalApiSimulatorService {
 
 	public String getAsJsonFormat(String xmlInput) throws ParseException {
 		String output = "";
-	    // Source : https://www.novixys.com/blog/convert-xml-json/
 		MyRoot root = JAXB.unmarshal(new StringReader(xmlInput), MyRoot.class);
 		Double amountDouble;
 		Double debit;
 		Double credit;
 		for (MyTransaction myTransaction : root.getTransactions()) {
-			/*
-			DecimalFormat df = new DecimalFormat(",##");
-			DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
-			dfs.setDecimalSeparator('.');
-			dfs.setGroupingSeparator(',');
-			df.setDecimalFormatSymbols(dfs);
-			amountDouble = Double.parseDouble(df.format(myTransaction.getAmount()));
-			*/
-			NumberFormat nfIn = NumberFormat.getNumberInstance(Locale.FRANCE);
+			NumberFormat nfIn = NumberFormat.getNumberInstance(Locale.FRENCH);
 			double amountFR = nfIn.parse(myTransaction.getAmount()).doubleValue();
 			NumberFormat nfOut = NumberFormat.getNumberInstance(Locale.UK);
 			nfOut.setMaximumFractionDigits(2);
